@@ -1,7 +1,6 @@
 # Blog-app
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a MVVM style Blog app using Ember.js and a firebase backend to store the data.
+Its not pretty but that wasnt the point of this app. It does however work :D 
 
 ## Prerequisites
 
