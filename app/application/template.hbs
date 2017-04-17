@@ -1,40 +1,48 @@
-
-
 <div class="container">
-  <!-- Content here -->
+  <!-- Content Below here -->
   <div class="row">
+      <!-- Left Column -->
     <div class="col-md-3"></div>
+      <!-- Middle Column -->
     <div class="col-md-6">
       <div class="newBlog">
         <h2>Ember Blog</h2>
         <label for="formPostTitle">Title Of Post:</label><br>
-        {{input value=newPostTitle placeholder="Post Title"}} <br><br>
+        {{input value=newPostTitle placeholder="Post Title"}}<br><br>
+        
+        <label for="formPostAuthor">Author:</label><br>
+        {{input value=newAuthor placeholder="Author"}}<br><br>
+
+        <label for="formPostTitle">Post Content:</label><br>
         {{textarea value=newPostText cols="80" rows="6" placeholder="Enter Text" class="textBox" spellcheck=true }}<br>
         <span class="buttonRight">
           {{#bs-button  class="btn btn-primary btn-sm" type="primary" onClick=(action "savePost" model)}}Post Blog{{/bs-button}}
         </span>
-
         <hr>
       </div>
     </div>
-    <div class="col-md-3">.</div>
+      <!-- Right Column -->
+    <div class="col-md-3"></div>
   </div>
+    
+        <!-- Below This Dynamicly Displays the Posts. --> 
 
   <div class="row">
+      <!-- Left Column -->
     <div class="col-md-3"></div>
-
+      <!-- Middle Column -->
     <div class="col-md-6" id="blogArea">
       {{#each model as |post|}}
         <p><strong>{{post.postTitle}}</strong></p>
-        <p>{{post.postText}}</p>
+        <p>Author: {{post.author}}</p>
+        <p>{{markdown-to-html post.postText}}</p>
         <span class="buttonRight">
           {{#bs-button type="danger" class="btn btn-primary btn-sm" onClick=(action "deletePost" post)}}Remove{{/bs-button}}<br><br>
         </span>
-
       {{/each}}
     </div>
-
+      <!-- Right Column -->
     <div class="col-md-3"></div>
   </div>
-
+  <!-- Content Above here -->
 </div>
